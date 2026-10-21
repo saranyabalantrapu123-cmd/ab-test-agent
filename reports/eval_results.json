@@ -1,0 +1,390 @@
+{
+  "result": {
+    "mode": "rule-based offline mode (MockLLM, no API key)",
+    "rows": [
+      {
+        "experiment_id": "exp_checkout_redesign",
+        "scenario": "clear_winner",
+        "expected": "Ship",
+        "agent": "Ship",
+        "decision_correct": true,
+        "planted_issue_surfaced": true,
+        "wrong_ship": false,
+        "validator_passed": true,
+        "tool_calls": 10,
+        "rule_reading": "Primary metric significantly improved with no guardrail regressions.",
+        "usage": {
+          "calls": 5,
+          "prompt_tokens": 0,
+          "completion_tokens": 0,
+          "estimated_cost_usd": 0.0
+        }
+      },
+      {
+        "experiment_id": "exp_plan_page_copy",
+        "scenario": "flat",
+        "expected": "Don't ship",
+        "agent": "Don't ship",
+        "decision_correct": true,
+        "planted_issue_surfaced": true,
+        "wrong_ship": false,
+        "validator_passed": true,
+        "tool_calls": 10,
+        "rule_reading": "No significant effect and the test was powered for the MDE.",
+        "usage": {
+          "calls": 5,
+          "prompt_tokens": 0,
+          "completion_tokens": 0,
+          "estimated_cost_usd": 0.0
+        }
+      },
+      {
+        "experiment_id": "exp_autopay_banner",
+        "scenario": "sample_ratio_mismatch",
+        "expected": "Investigate",
+        "agent": "Investigate",
+        "decision_correct": true,
+        "planted_issue_surfaced": true,
+        "wrong_ship": false,
+        "validator_passed": true,
+        "tool_calls": 4,
+        "rule_reading": "Sample-ratio mismatch: allocation differs from design, so every metric is suspect.",
+        "usage": {
+          "calls": 4,
+          "prompt_tokens": 0,
+          "completion_tokens": 0,
+          "estimated_cost_usd": 0.0
+        }
+      },
+      {
+        "experiment_id": "exp_discount_nudge",
+        "scenario": "guardrail_breach",
+        "expected": "Don't ship",
+        "agent": "Don't ship",
+        "decision_correct": true,
+        "planted_issue_surfaced": true,
+        "wrong_ship": false,
+        "validator_passed": true,
+        "tool_calls": 10,
+        "rule_reading": "Primary metric improved but guardrail(s) revenue_per_user significantly regressed.",
+        "usage": {
+          "calls": 5,
+          "prompt_tokens": 0,
+          "completion_tokens": 0,
+          "estimated_cost_usd": 0.0
+        }
+      },
+      {
+        "experiment_id": "exp_app_onboarding",
+        "scenario": "heterogeneous_effect",
+        "expected": "Ship (platform=app)",
+        "agent": "Ship (platform=app)",
+        "decision_correct": true,
+        "planted_issue_surfaced": true,
+        "wrong_ship": false,
+        "validator_passed": true,
+        "tool_calls": 10,
+        "rule_reading": "Primary metric improved, driven by platform=app; ship to that segment only.",
+        "usage": {
+          "calls": 5,
+          "prompt_tokens": 0,
+          "completion_tokens": 0,
+          "estimated_cost_usd": 0.0
+        }
+      },
+      {
+        "experiment_id": "exp_family_bundle",
+        "scenario": "underpowered",
+        "expected": "Inconclusive-extend",
+        "agent": "Inconclusive-extend",
+        "decision_correct": true,
+        "planted_issue_surfaced": true,
+        "wrong_ship": false,
+        "validator_passed": true,
+        "tool_calls": 10,
+        "rule_reading": "No significant effect yet, but the test is underpowered for the MDE.",
+        "usage": {
+          "calls": 5,
+          "prompt_tokens": 0,
+          "completion_tokens": 0,
+          "estimated_cost_usd": 0.0
+        }
+      }
+    ],
+    "summary": {
+      "experiments": 6,
+      "decision_accuracy": 1.0,
+      "planted_issue_surfaced": 1.0,
+      "wrong_ship_decisions": 0,
+      "validator_pass_rate": 1.0,
+      "total_tokens": 0,
+      "estimated_cost_usd": 0.0
+    }
+  },
+  "seed_sweep": {
+    "seeds": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      19
+    ],
+    "mean_decision_accuracy": 0.9666666666666666,
+    "total_wrong_ships": 0,
+    "per_scenario_accuracy": {
+      "clear_winner": 0.9,
+      "flat": 0.95,
+      "sample_ratio_mismatch": 1.0,
+      "guardrail_breach": 1.0,
+      "heterogeneous_effect": 0.95,
+      "underpowered": 1.0
+    },
+    "misses": [
+      {
+        "seed": 9,
+        "scenario": "clear_winner",
+        "expected": "Ship",
+        "agent": "Don't ship",
+        "rule_reading": "Primary metric improved but guardrail(s) support_contact_rate significantly regressed."
+      },
+      {
+        "seed": 11,
+        "scenario": "clear_winner",
+        "expected": "Ship",
+        "agent": "Don't ship",
+        "rule_reading": "Primary metric improved but guardrail(s) support_contact_rate significantly regressed."
+      },
+      {
+        "seed": 13,
+        "scenario": "flat",
+        "expected": "Don't ship",
+        "agent": "Inconclusive-extend",
+        "rule_reading": "No significant effect yet, but the test is underpowered for the MDE."
+      },
+      {
+        "seed": 18,
+        "scenario": "heterogeneous_effect",
+        "expected": "Ship (platform=app)",
+        "agent": "Ship",
+        "rule_reading": "Primary metric significantly improved with no guardrail regressions."
+      }
+    ],
+    "per_seed": [
+      {
+        "seed": 0,
+        "experiments": 6,
+        "decision_accuracy": 1.0,
+        "planted_issue_surfaced": 1.0,
+        "wrong_ship_decisions": 0,
+        "validator_pass_rate": 1.0,
+        "total_tokens": 0,
+        "estimated_cost_usd": 0.0
+      },
+      {
+        "seed": 1,
+        "experiments": 6,
+        "decision_accuracy": 1.0,
+        "planted_issue_surfaced": 1.0,
+        "wrong_ship_decisions": 0,
+        "validator_pass_rate": 1.0,
+        "total_tokens": 0,
+        "estimated_cost_usd": 0.0
+      },
+      {
+        "seed": 2,
+        "experiments": 6,
+        "decision_accuracy": 1.0,
+        "planted_issue_surfaced": 0.8333333333333334,
+        "wrong_ship_decisions": 0,
+        "validator_pass_rate": 1.0,
+        "total_tokens": 0,
+        "estimated_cost_usd": 0.0
+      },
+      {
+        "seed": 3,
+        "experiments": 6,
+        "decision_accuracy": 1.0,
+        "planted_issue_surfaced": 1.0,
+        "wrong_ship_decisions": 0,
+        "validator_pass_rate": 1.0,
+        "total_tokens": 0,
+        "estimated_cost_usd": 0.0
+      },
+      {
+        "seed": 4,
+        "experiments": 6,
+        "decision_accuracy": 1.0,
+        "planted_issue_surfaced": 1.0,
+        "wrong_ship_decisions": 0,
+        "validator_pass_rate": 1.0,
+        "total_tokens": 0,
+        "estimated_cost_usd": 0.0
+      },
+      {
+        "seed": 5,
+        "experiments": 6,
+        "decision_accuracy": 1.0,
+        "planted_issue_surfaced": 1.0,
+        "wrong_ship_decisions": 0,
+        "validator_pass_rate": 1.0,
+        "total_tokens": 0,
+        "estimated_cost_usd": 0.0
+      },
+      {
+        "seed": 6,
+        "experiments": 6,
+        "decision_accuracy": 1.0,
+        "planted_issue_surfaced": 1.0,
+        "wrong_ship_decisions": 0,
+        "validator_pass_rate": 1.0,
+        "total_tokens": 0,
+        "estimated_cost_usd": 0.0
+      },
+      {
+        "seed": 7,
+        "experiments": 6,
+        "decision_accuracy": 1.0,
+        "planted_issue_surfaced": 0.8333333333333334,
+        "wrong_ship_decisions": 0,
+        "validator_pass_rate": 1.0,
+        "total_tokens": 0,
+        "estimated_cost_usd": 0.0
+      },
+      {
+        "seed": 8,
+        "experiments": 6,
+        "decision_accuracy": 1.0,
+        "planted_issue_surfaced": 1.0,
+        "wrong_ship_decisions": 0,
+        "validator_pass_rate": 1.0,
+        "total_tokens": 0,
+        "estimated_cost_usd": 0.0
+      },
+      {
+        "seed": 9,
+        "experiments": 6,
+        "decision_accuracy": 0.8333333333333334,
+        "planted_issue_surfaced": 0.8333333333333334,
+        "wrong_ship_decisions": 0,
+        "validator_pass_rate": 1.0,
+        "total_tokens": 0,
+        "estimated_cost_usd": 0.0
+      },
+      {
+        "seed": 10,
+        "experiments": 6,
+        "decision_accuracy": 1.0,
+        "planted_issue_surfaced": 1.0,
+        "wrong_ship_decisions": 0,
+        "validator_pass_rate": 1.0,
+        "total_tokens": 0,
+        "estimated_cost_usd": 0.0
+      },
+      {
+        "seed": 11,
+        "experiments": 6,
+        "decision_accuracy": 0.8333333333333334,
+        "planted_issue_surfaced": 0.8333333333333334,
+        "wrong_ship_decisions": 0,
+        "validator_pass_rate": 1.0,
+        "total_tokens": 0,
+        "estimated_cost_usd": 0.0
+      },
+      {
+        "seed": 12,
+        "experiments": 6,
+        "decision_accuracy": 1.0,
+        "planted_issue_surfaced": 1.0,
+        "wrong_ship_decisions": 0,
+        "validator_pass_rate": 1.0,
+        "total_tokens": 0,
+        "estimated_cost_usd": 0.0
+      },
+      {
+        "seed": 13,
+        "experiments": 6,
+        "decision_accuracy": 0.8333333333333334,
+        "planted_issue_surfaced": 0.8333333333333334,
+        "wrong_ship_decisions": 0,
+        "validator_pass_rate": 1.0,
+        "total_tokens": 0,
+        "estimated_cost_usd": 0.0
+      },
+      {
+        "seed": 14,
+        "experiments": 6,
+        "decision_accuracy": 1.0,
+        "planted_issue_surfaced": 1.0,
+        "wrong_ship_decisions": 0,
+        "validator_pass_rate": 1.0,
+        "total_tokens": 0,
+        "estimated_cost_usd": 0.0
+      },
+      {
+        "seed": 15,
+        "experiments": 6,
+        "decision_accuracy": 1.0,
+        "planted_issue_surfaced": 0.8333333333333334,
+        "wrong_ship_decisions": 0,
+        "validator_pass_rate": 1.0,
+        "total_tokens": 0,
+        "estimated_cost_usd": 0.0
+      },
+      {
+        "seed": 16,
+        "experiments": 6,
+        "decision_accuracy": 1.0,
+        "planted_issue_surfaced": 1.0,
+        "wrong_ship_decisions": 0,
+        "validator_pass_rate": 1.0,
+        "total_tokens": 0,
+        "estimated_cost_usd": 0.0
+      },
+      {
+        "seed": 17,
+        "experiments": 6,
+        "decision_accuracy": 1.0,
+        "planted_issue_surfaced": 1.0,
+        "wrong_ship_decisions": 0,
+        "validator_pass_rate": 1.0,
+        "total_tokens": 0,
+        "estimated_cost_usd": 0.0
+      },
+      {
+        "seed": 18,
+        "experiments": 6,
+        "decision_accuracy": 0.8333333333333334,
+        "planted_issue_surfaced": 0.8333333333333334,
+        "wrong_ship_decisions": 0,
+        "validator_pass_rate": 1.0,
+        "total_tokens": 0,
+        "estimated_cost_usd": 0.0
+      },
+      {
+        "seed": 19,
+        "experiments": 6,
+        "decision_accuracy": 1.0,
+        "planted_issue_surfaced": 1.0,
+        "wrong_ship_decisions": 0,
+        "validator_pass_rate": 1.0,
+        "total_tokens": 0,
+        "estimated_cost_usd": 0.0
+      }
+    ]
+  }
+}

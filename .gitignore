@@ -1,0 +1,16 @@
+# generated data (re-create with `make data`)
+data/
+reports/uploads/
+
+# python
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.venv/
+venv/
+*.egg-info/
+
+# secrets / local
+.env
+.DS_Store
+.streamlit/secrets.toml
